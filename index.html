@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Video Gallery</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+		*,
+		*:before,
+		*:after {
+			box-sizing: border-box;
+		}
+
+		html,body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Comfortaa', sans-serif;
+			font-size: 16px;
+			background-color: #0f0f0f;
+		}
+
+		p {
+			padding: 0;
+			margin: 0;
+		}
+		.wrapper {
+			min-height: calc(100vh - 80px);
+		}
+		.content {
+			width: 100%;
+			max-width: 1400px;
+			margin: 0 auto;
+		}
+
+		
+		.video__container {
+			position: relative;
+			padding-bottom: 56.25%;
+			/* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
+			height: 0;
+			overflow: hidden;
+			text-align: center;
+			border: 1px #fff solid;
+			border-radius: 5px;
+		}
+
+		.video__container iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-width: 0;
+			outline-width: 0;
+		}
+
+		header {
+			background-color: #303548;
+			height: 2rem;
+			margin: 30px 0;
+		}
+
+		.title {
+			width: 100%;
+		}
+
+		.title span {
+			font-size: 3rem;
+			color: #fff;
+			font-weight: 700;
+			padding-left: 50px;
+			/*Отступ слева*/
+			position: relative;
+			top: -10px;
+			display: block;
+		}
+
+		.logo-yt {
+			position: relative;
+		}
+
+		.logo-yt::after {
+			content: "";
+			position: absolute;
+			top: -10px;
+			right: 40px;
+			background-image: url(img/icon-youtube.png);
+			background-repeat: no-repeat;
+			background-size: contain;
+			width: 70px;
+			height: 70px;
+		}
+
+		.video__text {
+			padding-left: 50px;
+			/*Отступ слева*/
+			margin-bottom: 40px;
+
+		}
+
+		.line-vertical {
+			border-left: 2px solid red;
+		}
+
+
+		.text__title p {
+			color: #b90101;
+			font-size: 1.5rem;
+			margin: 20px 0;
+		}
+
+		.text__subtext {
+			font-size: 1.2rem;
+			border: 1px #303548 solid;
+			border-radius: 10px;
+			padding: 5px;
+			background-color: #272727;
+		}
+
+		.text__subtext p {
+			text-align: justify;
+			color: #fff;
+		}
+
+		footer {
+			background-color: #303548;
+			width: 100%;
+			height: 50px;
+			text-align: right;
+		}
+
+		footer span {
+			color: #fff;
+			background-color: #303548;
+			font-size: 1.5rem;
+			line-height: 50px;
+		}
+
+		@media (max-width: 1200px) {
+			.content {
+				max-width: 968px;
+				margin: 0 auto;
+			}
+
+			header {
+				height: 1.5rem;
+			}
+
+			.logo-yt::after {
+				content: "";
+				top: -15px;
+			}
+
+			.title span {
+				font-size: 2rem;
+				padding-left: 25px;
+				top: -5px;
+			}
+		}
+
+		@media (max-width: 768px) {
+			.content {
+				max-width: 760px;
+				margin: 0 auto;
+			}
+
+			header {
+				height: 1rem;
+			}
+
+			.title span {
+				font-size: 1.5rem;
+				padding-left: 25px;
+			}
+
+			.logo-yt::after {
+				content: "";
+				width: 45px;
+				height: 45px;
+				top: -10px;
+				right: 20px;
+			}
+		}
+
+		@media (max-width: 576px) {
+			.content {
+				max-width: 576px;
+				margin: 0 auto;
+			}
+
+			header {
+				height: auto;
+				padding: 10px 0;
+				margin: 0;
+			}
+
+			.title {
+				text-align: center;
+
+			}
+
+			.title span {
+				font-size: 1rem;
+				padding: 0;
+			}
+
+			.logo-yt::after {
+				content: "";
+				display: none;
+			}
+
+			.text__title p {
+				font-size: 1rem;
+			}
+
+			.video__text {
+				padding-left: 25px;
+				padding-right: 0px;
+				/*Отступ слева*/
+			}
+
+			.text__subtext {
+				max-height: 180px;
+				overflow: auto;
+			}
+
+			.text__subtext p {
+				font-size: 0.9rem;
+			}
+
+			footer span {
+				color: #fff;
+				background-color: #303548;
+				line-height: 50px;
+				font-size: 1rem;
+
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header>
+			<div class="content">
+				<div class="title ">
+					<span class="title__text logo-yt">Примеры с видео из YouTube</span>
+				</div>
+			</div>
+		</header>
+		<main>
+	<div class="content">
+		<div class="video">
+			<div class="video__container">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/oQY1VouspmM?si=hpzWZNlKWhFQDwcF"
+					title="YouTube video player" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+			</div>
+			<div class="video__text line-vertical">
+				<div class="text__title">
+					<p>ПРОГРАММИСТЫ! ВСЕ СЮДА...</p>
+				</div>
+				<div class="text__subtext">
+					<p>
+						Автор рассказывает о своем опыте в программировании и о том, как он создал свою экосистему для
+						продуктивности и экономии времени. Автор обсуждает различные текстовые редакторы, такие как Vim, Sublime
+						Text, Atom и Bracket, и объясняет, что Vim является самым простым и базовым редактором, который можно
+						использовать в терминале. Он также рекомендует использовать Visual Studio Code, так как он является самым
+						популярным и имеет множество плагинов для различных языков программирования.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="video">
+			<div class="video__container">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/cxr3b_Gzmls?si=oFY_XevVLb5qk7vh"
+					title="YouTube video player" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+			</div>
+			<div class="video__text line-vertical">
+				<div class="text__title">
+					<p>Почему «Оппенгеймер», кажется, главный фильм года</p>
+				</div>
+				<div class="text__subtext">
+					<p>
+						В этом видеоэссе мы попробуем разобраться, как устроен этот фильм, кого именно в нем критикует Нолан и можно
+						ли назвать «Оппенгеймера» главным фильмом в творчестве режиссера. Про саундтрек, Роберта Дауни-младшего и
+						небрежно выстроенные нолановские мизансцены тоже рассказали. Сейчас уже можно с уверенностью сказать, что
+						«Оппенгеймер» — один из главных фильмов этого года. Картина Кристофера Нолана стала феноменом не только для
+						прессы, но и для зрителей, и в мировом прокате лента собрала почти миллиард долларов (даже несмотря на то,
+						что это трехчасовой байопик создателя атомной бомбы). Вместе с тем мнения о том, получилось ли кино удачным
+						или нет, разделились.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="video">
+			<div class="video__container">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/Zg0TGyZblpg?si=xMtGNUn8NeT7oXRV"
+					title="YouTube video player" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+			</div>
+			<div class="video__text line-vertical">
+				<div class="text__title">
+					<p>Японская мифология: легенды, вызывающие ужас</p>
+				</div>
+				<div class="text__subtext">
+					<p>
+						Меня зовут Александр Раевский, историк и японист, и сегодня я расскажу вам об удивительном и загадочном мире
+						японских сказок и мифов. Мы погрузимся в волшебные рассказы о тануки, лисицах-китсунэ, йокаев и других
+						загадочных существах, которые населяют японский фольклор. Эти существа играют ключевую роль в мифологии и
+						культуре Японии. Тануки известны своей хитростью и любят
+						обманывать людей, лисицы-китсунэ обладают магическими способностями и могут принимать человеческий облик, а
+						йокаи – это целый класс мифических существ, каждое со своей уникальной историей и характером. Мы
+						познакомимся с наиболее известными историями, которые передавались из поколения в поколение, и узнаем,
+						как эти сказки отражают японскую культуру, историю и даже отношение к природе и миру в целом.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="video">
+			<div class="video__container">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/qAygyAzLnp8?si=sZ-rXdbomhYItu-O"
+					title="YouTube video player" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+			</div>
+			<div class="video__text line-vertical">
+				<div class="text__title">
+					<p>Слепая печать - это больно, но необходимо!</p>
+				</div>
+				<div class="text__subtext">
+					<p>
+						В данном уроке вы узнаете, что такое слепая печать, как максимально быстро научиться печатать
+						десятипальцевым методом, а также познакомимся с одним из самых эффективных тренажеров, который сделает вашу
+						работу быстрее, проще и приятней.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+	</div>
+	<footer>
+		<div class="content">
+			<span> &#169; Для учебных целей</span>
+		</div>
+	</footer>
+
+</body>
+
+</html>
